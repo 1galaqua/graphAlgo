@@ -105,15 +105,15 @@ def check3():
     g_algo.plot_graph()
 
 
-if __name__ == '__main__':
-    # check()
-    graph = GraphAlgo()
-    graph.load_from_json("src/A0.json")
-    test = GraphAlgo.get_graph(graph)
-    for node in test.get_all_v():
-        print(node,"<---")
-        print(test.all_in_edges_of_node(node))
-        print("-------------------")
-        print(node , "--->")
-        print(test.all_out_edges_of_node(node))
+# if __name__ == '__main__':
+#     # check()
+#     graph = GraphAlgo()
+#     graph.load_from_json("A0.json")
+#     test = GraphAlgo.get_graph(graph)
+#     for node in test.get_all_v():
+#         print(node,"<---")
+#         print(test.all_in_edges_of_node(node))
+#         print("-------------------")
+#         print(node , "--->")
+#         print(test.all_out_edges_of_node(node))
     

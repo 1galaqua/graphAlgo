@@ -5,6 +5,7 @@ from node_class import Nodes
 import json
 import __future__
 
+
 class GraphAlgo(GraphAlgoInterface):
     
     # constructor
@@ -30,11 +31,14 @@ class GraphAlgo(GraphAlgoInterface):
     # save the graph to a json file  
     def save_to_json(self, file_name: str) -> bool:
         pass
-            
-    
-    
-if __name__ == '__main__':
-    pass
-    # graph = GraphAlgo()
-    # test = graph.load_from_json("./A0.json")
-    # print(test)
+
+   # def shortest_path(self, id1: int, id2: int) -> (float, list):
+
+
+   
+    if __name__ == '__main__':
+       # pass
+        graph = GraphAlgo()
+        test = graph.load_from_json("./A0.json")
+        print("----------")
+        print(test)
