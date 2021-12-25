@@ -3,7 +3,7 @@ from GraphInterface import GraphInterface
 from di_graph import DiGraph
 from node_class import Nodes
 import json
-import __future__
+
 
 class GraphAlgo(GraphAlgoInterface):
     
@@ -22,7 +22,11 @@ class GraphAlgo(GraphAlgoInterface):
         f = open(file_name)
         datas = json.load(f)
         for node in datas['Nodes']:
-            self.diGraph.add_node(node['id'],node['pos'])
+            #split and cast location values
+            values = node['pos'].split(",")
+            pos = (float(values[0]) , float(values[1]) , float(values[2]))
+            
+            self.diGraph.add_node(node['id'],pos)
         for edge in datas['Edges']:
             self.diGraph.add_edge(edge['src'],edge['dest'],edge['w'])
         return True

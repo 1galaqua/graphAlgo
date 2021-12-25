@@ -1,6 +1,7 @@
 from GraphAlgoInterface import GraphAlgoInterface
 from di_graph import DiGraph
 from graph_algo import GraphAlgo
+from node_class import Nodes
 
 
 def check():
@@ -110,10 +111,12 @@ if __name__ == '__main__':
     graph = GraphAlgo()
     graph.load_from_json("src/A0.json")
     test = GraphAlgo.get_graph(graph)
-    for node in test.get_all_v():
-        print(node,"<---")
-        print(test.all_in_edges_of_node(node))
-        print("-------------------")
-        print(node , "--->")
-        print(test.all_out_edges_of_node(node))
+    node:Nodes
+    for id,node in test.get_all_v().items():
+        # print(node,"<---")
+        # print(test.all_in_edges_of_node(node))
+        # print("-------------------")
+        # print(node , "--->")
+        # print(test.all_out_edges_of_node(node))
     
+        print(node.pos)
