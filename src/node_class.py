@@ -10,7 +10,7 @@ class Nodes:
         self.me_to_other:Dict[int,float] = {}
         self.weight=sys.float_info.max
         self.tag=0
-        self.prev=None
+        self.prev=id
         self.dist=0
         
         

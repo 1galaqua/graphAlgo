@@ -73,40 +73,59 @@ class GraphAlgo(GraphAlgoInterface):
     #             prev[v] ← u 
 
     # return dist[], prev[]
-    def dijikstra(self, src:int, dest:int)->list:
-        list_ver=[]
-        ans=[]
-        # Self.load_from_json("A0.json")
-        test = self.get_graph()
+    # def dijikstra(self, src:int, dest:int):
+    #     test=self.get_graph()
+    #     mylist_ver=[]
+    #     ans=[]
+    #     # src=0
+    #     # dest=9
+    #     print(src,"-->",dest)
+    #     for id,node in test.get_all_v().items():
+    #         test.NodesMap[id].tag=0
+    #         test.NodesMap[id].weight=100000000
+    #         test.NodesMap[id].dist=0
+              
+    #     test.NodesMap[src].weight=0
+    #     test.NodesMap[src].tag=1
+
+    #     mylist_ver.append(test.NodesMap[src].id)
+    
+    #     test.NodesMap[src].prev=test.NodesMap[src]
+    #     while(len(mylist_ver)):
+       
+    #         nodeTemp=mylist_ver.pop(0)
         
-        for id,node in test.get_all_v().items():
-            node.tag=0
-            node.weight=sys.float_info.max
-            node.dist=0
-                
-        self.diGraph.NodesMap[src].weight=0
-        list_ver.append(id)
-        while(len(list_ver)):
-            nodeTemp=list_ver.pop
-            for id,weight in self.diGraph.NodesMap[nodeTemp].me_to_other.items():
-                self.diGraph.NodesMap[nodeTemp].tag=1
-                tempWeight=self.diGraph.NodesMap[nodeTemp].weight+weight
-                if (tempWeight<self.diGraph.NodesMap[id].weight):
-                    self.diGraph.NodesMap[id].weight=tempWeight
-                    self.diGraph.NodesMap[id].prev=nodeTemp
-                    if(self.diGraph.NodesMap[id]!=1):    
-                     list_ver.append(id)
-
-        boolean=True
-        ans.append(self.diGraph.NodesMap[dest].prev)
-        tempONlist=self.diGraph.NodesMap[dest].prev
-        while(boolean):
+    #             for id,weight in test.NodesMap[nodeTemp].me_to_other.items():
             
-            ans.append(self.diGraph.NodesMap[tempONlist].prev)
-            tempONlist=self.diGraph.NodesMap[tempONlist].prev
-            if(tempONlist==src):
-                boolean=False
+    #                 tempWeight=test.NodesMap[nodeTemp].weight+weight
+    #                 if (tempWeight<test.NodesMap[id].weight):
+    #                     test.NodesMap[id].weight=tempWeight
+    #                     test.NodesMap[id].prev=test.NodesMap[nodeTemp].id
+    #         if(test.NodesMap[id].tag!=1):    
+    #             mylist_ver.insert(len(mylist_ver),id)
+                
+    #         test.NodesMap[nodeTemp].tag=1
+    
+    #     boolean=True
+    #     ans.append(dest)
+    #     tempONlist=dest
+    
+    #     while(boolean):
+            
+    #         ans.append(test.NodesMap[tempONlist].prev)
+    #         # print(ans)
+    #         tempONlist=test.NodesMap[tempONlist].prev
+    #         if(tempONlist==src):
+            
+    #             boolean=False
 
-        return ans
+        
+    
+    #     final_ans=[]
+    #     print(test.NodesMap[dest].weight)
+    #     for id in ans:
+    #         final_ans.insert(0,id)
+        
+    #     return (final_ans)
    
    

@@ -133,68 +133,63 @@ if __name__ == '__main__':
     # else:
     #     print(" empty")
     # print("-------2-not empty--------")
-    # mylist2=["gal","tamar"]
-    # if len(mylist2):
-    #     print("full_list")
-    # else:
-    #     print(" empty")
+    # ans=graph.dijikstra(9,3)
+    # print(ans)
     
-    # print(test.NodesMap[2].pos)
-    # print("")
-    tamarlist=["batata",5,"matzika"]
-    (tamarlist.append("hi"))
-    print(tamarlist.pop(1))
-    print(tamarlist.pop(1))
-    # print(graph.dijikstra(2,5))
-    print("")
-    print(test.NodesMap[2].me_to_other)
+    
     mylist_ver=[]
     ans=[]
-    src=2
-    dest=5
-    i=0
+    src=8
+    dest=0
+    print(src,"-->",dest)
     for id,node in test.get_all_v().items():
         test.NodesMap[id].tag=0
-        test.NodesMap[id].weight=10000000
+        test.NodesMap[id].weight=100000000
         test.NodesMap[id].dist=0
-        i=i+1
-        print(test.NodesMap[id].weight ,"--",i)        
+              
     test.NodesMap[src].weight=0
     test.NodesMap[src].tag=1
-    print("src weight:",test.NodesMap[src].weight)
-    print("src tag:",test.NodesMap[src].tag)
+
     mylist_ver.append(test.NodesMap[src].id)
+    
     test.NodesMap[src].prev=test.NodesMap[src]
     while(len(mylist_ver)):
-        print(mylist_ver)
+       
         nodeTemp=mylist_ver.pop(0)
-        print(nodeTemp)
+        
         for id,weight in test.NodesMap[nodeTemp].me_to_other.items():
-            test.NodesMap[nodeTemp].tag=1
+            
             tempWeight=test.NodesMap[nodeTemp].weight+weight
             if (tempWeight<test.NodesMap[id].weight):
                 test.NodesMap[id].weight=tempWeight
                 test.NodesMap[id].prev=test.NodesMap[nodeTemp].id
             if(test.NodesMap[id].tag!=1):    
                 mylist_ver.insert(len(mylist_ver),id)
-
+                
+        test.NodesMap[nodeTemp].tag=1
+    
     boolean=True
-    ans.append(test.NodesMap[dest].prev)
-    tempONlist=test.NodesMap[dest].prev
-    print(ans)
+    ans.append(dest)
+    tempONlist=dest
+    
     while(boolean):
             
         ans.append(test.NodesMap[tempONlist].prev)
        # print(ans)
         tempONlist=test.NodesMap[tempONlist].prev
         if(tempONlist==src):
+            
             boolean=False
 
         
-    for id,weight in test.NodesMap[2].me_to_other.items():
-        print(weight)
-
-    print(ans,test.NodesMap[dest].weight)
+    
+    final_ans=[]
+    print(test.NodesMap[dest].weight)
+    for id in ans:
+        
+        final_ans.insert(0,id)
+        
+    print(final_ans)
     
 
 
