@@ -111,7 +111,7 @@ def check3():
 if __name__ == '__main__':
     # check()
     graph = GraphAlgo()
-    graph.load_from_json("src/A0.json")
+    graph.load_from_json("A0.json")
     test = GraphAlgo.get_graph(graph)
     node:Nodes
     for id,node in test.get_all_v().items():
@@ -122,4 +122,5 @@ if __name__ == '__main__':
         # print(test.all_out_edges_of_node(node))
     
         print(node.pos)
+
 
