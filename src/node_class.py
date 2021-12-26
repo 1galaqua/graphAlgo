@@ -1,6 +1,6 @@
 from typing import Dict
 from typing import Tuple
-
+import sys
 
 class Nodes:
     def __init__(self , id:int , pos:tuple ):
@@ -8,4 +8,9 @@ class Nodes:
         self.pos:Tuple[float,float,float] = pos
         self.other_to_me:Dict[int,float] = {}
         self.me_to_other:Dict[int,float] = {}
+        self.weight=sys.float_info.max
+        self.tag=0
+        self.prev=None
+        self.dist=0
+        
         
