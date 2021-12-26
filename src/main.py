@@ -4,6 +4,8 @@ from graph_algo import GraphAlgo
 from node_class import Nodes
 
 
+
+
 def check():
     """
     Graph: |V|=4 , |E|=5
@@ -120,7 +122,9 @@ if __name__ == '__main__':
         # print("-------------------")
         # print(node , "--->")
         # print(test.all_out_edges_of_node(node))
-    
+        
         print(node.pos)
+    
+    
 
 
