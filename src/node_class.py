@@ -8,7 +8,7 @@ class Nodes:
         self.pos:Tuple[float,float,float] = pos
         self.other_to_me:Dict[int,float] = {}
         self.me_to_other:Dict[int,float] = {}
-        self.weight=sys.float_info.max
+        self.weight=0
         self.tag=0
         self.prev=id
         self.dist=0

@@ -115,81 +115,19 @@ def check3():
 if __name__ == '__main__':
     # check()
     graph = GraphAlgo()
-    graph.load_from_json("A0.json")
+    graph.load_from_json("data/A2.json")
     test = GraphAlgo.get_graph(graph)
     node:Nodes
-    # for id,node in test.get_all_v().items():
-    #     # print(node,"<---")
-    #     # print(test.all_in_edges_of_node(node))
-    #     # print("-------------------")
-    #     # print(node , "--->")
-    #     # print(test.all_out_edges_of_node(node))
-    #     print(node.tag)
-    #     print(node.pos,"-----", node.weight)
-    # mylist=[]
-    # print("--------empty--------")
-    # if  len(mylist):
-    #     print("not empty_list")
-    # else:
-    #     print(" empty")
-    # print("-------2-not empty--------")
-    # ans=graph.dijikstra(9,3)
-    # print(ans)
+    
+    ans=graph.shortest_path(1,7)
+    print(ans[0],"weight:",ans[1])
+    print()
+    ans2=graph.centerPoint()
+    print(ans2[0],ans2[1])
     
     
-    mylist_ver=[]
-    ans=[]
-    src=8
-    dest=0
-    print(src,"-->",dest)
-    for id,node in test.get_all_v().items():
-        test.NodesMap[id].tag=0
-        test.NodesMap[id].weight=100000000
-        test.NodesMap[id].dist=0
-              
-    test.NodesMap[src].weight=0
-    test.NodesMap[src].tag=1
-
-    mylist_ver.append(test.NodesMap[src].id)
     
-    test.NodesMap[src].prev=test.NodesMap[src]
-    while(len(mylist_ver)):
-       
-        nodeTemp=mylist_ver.pop(0)
-        
-        for id,weight in test.NodesMap[nodeTemp].me_to_other.items():
-            
-            tempWeight=test.NodesMap[nodeTemp].weight+weight
-            if (tempWeight<test.NodesMap[id].weight):
-                test.NodesMap[id].weight=tempWeight
-                test.NodesMap[id].prev=test.NodesMap[nodeTemp].id
-            if(test.NodesMap[id].tag!=1):    
-                mylist_ver.insert(len(mylist_ver),id)
-                
-        test.NodesMap[nodeTemp].tag=1
-    
-    boolean=True
-    ans.append(dest)
-    tempONlist=dest
-    
-    while(boolean):
-            
-        ans.append(test.NodesMap[tempONlist].prev)
-       # print(ans)
-        tempONlist=test.NodesMap[tempONlist].prev
-        if(tempONlist==src):
-            
-            boolean=False
-
-        
-    
-    final_ans=[]
-    print(test.NodesMap[dest].weight)
-    for id in ans:
-        
-        final_ans.insert(0,id)
-        
-    print(final_ans)
+      
     
 
 
