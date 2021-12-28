@@ -23,9 +23,10 @@ def check():
     (7, 6.806805834715163)
     ([1,3,4,2],3.5)
     """
-    check0()
-    check1()
-    check2()
+    # check0()
+    # check1()
+    # check2()
+    check3()
 
 
 def check0():
@@ -58,7 +59,7 @@ def check1():
     :return:
     """
     g_algo = GraphAlgo()  # init an empty graph - for the GraphAlgo
-    file = "../data/T0.json"
+    file = "data/T0.json"
     g_algo.load_from_json(file)  # init a GraphAlgo from a json file
     print(g_algo.shortest_path(0, 3))
     print(g_algo.shortest_path(3, 1))
@@ -72,7 +73,7 @@ def check2():
       :return:
       """
     g_algo = GraphAlgo()
-    file = '../data/A5.json'
+    file = 'data/A5.json'
     g_algo.load_from_json(file)
     g_algo.get_graph().remove_edge(13, 14)
     g_algo.save_to_json(file + "_edited")
@@ -113,14 +114,4 @@ def check3():
 
 
 if __name__ == '__main__':
-    # check()
-    graph = GraphAlgo()
-    graph.load_from_json("data/A2.json")
-    test = GraphAlgo.get_graph(graph)
-    node:Nodes
-    
-    ans=graph.shortest_path(1,7)
-    print(ans[0],"weight:",ans[1])
-    print()
-    ans2=graph.centerPoint()
-    print(ans2[0],ans2[1])
+    check()

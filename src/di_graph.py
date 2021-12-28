@@ -18,13 +18,13 @@ class DiGraph(GraphInterface):
     # return number of vertices in the graph
     def v_size(self) -> int:
         return self.nbrNodes
-    
-    
+
+
     # return the numbers of edges in the graph
     def e_size(self) -> int:
         return self.nbrEdges
-    
-    
+
+
     # return a dictionnary of all the nodes in the graph
     def get_all_v(self) -> dict:
         nodeList ={}
@@ -39,8 +39,8 @@ class DiGraph(GraphInterface):
     def all_in_edges_of_node(self, id1: int) -> dict:
         node = self.NodesMap[id1]
         return node.other_to_me
-        
-    
+
+
     # return a dictionnary of all the edges from the node
     def all_out_edges_of_node(self, id1: int) -> dict:
         node = self.NodesMap[id1]
@@ -69,7 +69,7 @@ class DiGraph(GraphInterface):
         if node_id in self.NodesMap:
             return False
         # if the node don't have pos then we create one randomaly
-        if pos==(None,None,None):
+        if pos==(None,None,None) or pos == None:
            x = random.uniform(35.187 , 35.208)
            y = random.uniform(32.101 , 32.108)
            z = 0.0
@@ -81,24 +81,7 @@ class DiGraph(GraphInterface):
         self.mc+=1
         return True
         
-    # remove node from the graph    
-    # def remove_node(self, node_id: int) -> bool:
-    #     if node_id in self.NodesMap:
-    #         for key in self.NodesMap:
-    #             node = self.NodesMap[key]
-    #             if node_id in node.other_to_me:
-    #                 node.other_to_me.pop(node_id)
-    #                 self.nbrEdges-=1
-    #             if node_id in node.me_to_other:
-    #                 node.me_to_other.pop(node_id)
-    #                 self.nbrEdges-=1
-    #         self.NodesMap.pop(node_id)
-    #         self.nbrNodes-=1
-    #         self.mc+=1
-    #         return True
-    #     else:
-    #         return False
-    
+    # remove node from the graph
     def remove_node(self , node_id: int ) ->bool:
         if node_id in self.NodesMap:
             node = self.NodesMap[node_id]
@@ -116,9 +99,9 @@ class DiGraph(GraphInterface):
             return True
         else:
             return False
+
+ 
                 
-                
-    
     #remove edge from the graph
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
         node1 = self.NodesMap[node_id1]
