@@ -1,6 +1,7 @@
 from typing import Dict
 from GraphInterface import GraphInterface
 from node_class import Nodes
+import random
 import __future__
 
 
@@ -26,8 +27,13 @@ class DiGraph(GraphInterface):
     
     # return a dictionnary of all the nodes in the graph
     def get_all_v(self) -> dict:
-        return self.NodesMap
-    
+        nodeList ={}
+        # create the dic that contain our answer
+        for nodes in self.NodesMap:
+            curr_tuple = (self.NodesMap[nodes].pos )
+            nodeList[nodes] = curr_tuple
+            
+        return nodeList
     
     # return à dictionnary of all the edges to the node
     def all_in_edges_of_node(self, id1: int) -> dict:
@@ -50,8 +56,8 @@ class DiGraph(GraphInterface):
             edge = (id1 , id2 , weight)
             node1 = self.NodesMap[id1]
             node2 = self.NodesMap[id2]
-            node2.other_to_me[id1] = weight
-            node1.me_to_other[id2] = weight
+            node2.other_to_me[id1] = (id1,weight)
+            node1.me_to_other[id2] = (id2,weight)
             self.nbrEdges+=1
             self.mc+=1
             return True
@@ -62,12 +68,18 @@ class DiGraph(GraphInterface):
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
         if node_id in self.NodesMap:
             return False
-        else:
-            node = Nodes(node_id, pos)
-            self.NodesMap[node_id] = node
-            self.nbrNodes+=1
-            self.mc+=1
-            return True
+        # if the node don't have pos then we create one randomaly
+        if pos==(None,None,None):
+           x = random.uniform(35.187 , 35.208)
+           y = random.uniform(32.101 , 32.108)
+           z = 0.0
+           pos = (x,y,z)
+        
+        node = Nodes(node_id,pos)
+        self.NodesMap[node_id] = node
+        self.nbrNodes+=1
+        self.mc+=1
+        return True
         
     # remove node from the graph    
     # def remove_node(self, node_id: int) -> bool:

@@ -109,7 +109,7 @@ def check3():
     g_algo.plot_graph()
 
 
-   
+
 
 
 if __name__ == '__main__':
@@ -124,10 +124,3 @@ if __name__ == '__main__':
     print()
     ans2=graph.centerPoint()
     print(ans2[0],ans2[1])
-    
-    
-    
-      
-    
-
-
