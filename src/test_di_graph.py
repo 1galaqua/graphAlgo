@@ -2,7 +2,7 @@ import unittest
 from di_graph import DiGraph 
 from graph_algo import GraphAlgo
 
-class DiGraphTest(unittest.TestCase):
+class TestDiGraph(unittest.TestCase):
     
 
     def test_v_size(self):

@@ -23,7 +23,7 @@ class GraphAlgo(GraphAlgoInterface):
     def get_graph(self) -> GraphInterface:     
         return self.diGraph
     
-    #  read json file to graph
+    #  load json file to graph
     def load_from_json(self, file_name: str) -> bool:
         self.diGraph= DiGraph()
         try:
@@ -108,48 +108,23 @@ class GraphAlgo(GraphAlgoInterface):
             tempOption={}
             for src,node1 in self.diGraph.get_all_v().items():
                 max = -1
-                # for dest,node in self.diGraph.get_all_v().items():
+                
                 tempOption = self.dijikstra(src,None)[1]
                 
                 
                 for key in tempOption:
-                    # print(key,"weight:",tempOption[key])    
+                        
                     if tempOption[key]>max:
                         max = tempOption[key]
-                        # print(max)                
+                                        
                         tempList[src] = max
             minWeight=float('inf')
-            # print(tempList)
+            
             ans = -1
             for center,weight in tempList.items():
                 if weight<minWeight:
                     minWeight=weight
                     ans = center
-            #         if(src!=dest):
-            #             temp2=self.dijikstra(src,dest)
-            #             nodeOne=(src,dest,temp2[0]) 
-            #             tempList.append(nodeOne)
-
-            #     max=-1
-            #     centerOption=(0,0,0)
-            #     for checknode in tempList:
-
-            #         if(checknode[2]>max):
-            #             max=checknode[2]
-            #             centerOption=checknode
-            #     tempOption.append(centerOption)
-            #     # print(tempOption) 
-
-            #     tempList.clear()
-            # finalans=[]
-            # min=float('inf')
-            # for option in tempOption:
-            #     if(option[2]<min):
-            #         min=option[2]
-            #         finalans=option
-
-            # tempans=[finalans[0],finalans[2]]     
-
             return(ans,minWeight)
 
     def dijikstra(self, src:int, dest:int):
@@ -170,7 +145,6 @@ class GraphAlgo(GraphAlgoInterface):
             test.NodesMap[id].tag=0
             test.NodesMap[id].weight=float('inf')
             test.NodesMap[id].dist=0
-            # print(id)
               
         test.NodesMap[src].weight=0
         test.NodesMap[src].tag=1
@@ -203,12 +177,12 @@ class GraphAlgo(GraphAlgoInterface):
             if tempONlist== test.NodesMap[tempONlist].prev:
                 break
             tempONlist = test.NodesMap[tempONlist].prev
-            # print(tempONlist,src)
+            
             if(tempONlist==src):
 
                 boolean=False
 
-        # print(weight_dic)
+        
         ans.reverse()
         
         
@@ -264,10 +238,4 @@ class GraphAlgo(GraphAlgoInterface):
 
 
 if __name__ == '__main__':
-    
-    graph = GraphAlgo()
-    test = graph.load_from_json("data/A5.json")
-    # print(graph.isConnected())
-    print(graph.centerPoint())
-    # print(graph.dijikstra(1,2))
-    # print(graph.shortest_path(1,7))
+    pass
