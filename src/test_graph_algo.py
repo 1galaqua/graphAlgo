@@ -30,19 +30,6 @@ class TestGraphAlgo(unittest.TestCase):
 
         self.assertEqual(test1.shortest_path(9,8),([9,8],1.4575484853801393))
 
-    # def test_TSP(self):
-    #     test1 = GraphAlgo()
-    #     test1.load_from_json("data/A0.json")
-        
-    #     ans1 = []
-    #     weight1 = 
-    #     self.assertEqual(test1.TSP(),(ans1,weight1))
-
-    #     test2 = GraphAlgo()
-    #     test2.load_from_json("data/A1.json")
-    #     ans2 = []
-    #     weight2 = 
-    #     self.assertEqual(test2.TSP(),(ans2,weight2))
 
     def test_centerPoint(self):
         test1 = GraphAlgo()

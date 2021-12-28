@@ -1,10 +1,12 @@
 import sys
+
+import pygame
 from GraphAlgoInterface import GraphAlgoInterface
 from di_graph import DiGraph
 from graph_algo import GraphAlgo
 from node_class import Nodes
 
-
+pygame.init()
 
 
 def check():
@@ -14,18 +16,21 @@ def check():
     {0: 1}
     {0: 1.1, 2: 1.3, 3: 10}
     (3.4, [0, 1, 2, 3])
+
     (2.8, [0, 1, 3])
     (inf, [])
+
     2.062180280059253 [1, 10, 7]
     17.693921758901507 [47, 46, 44, 43, 42, 41, 40, 39, 15, 16, 17, 18, 19]
     11.51061380461898 [20, 21, 32, 31, 30, 29, 14, 13, 3, 2]
     inf []
+
     (7, 6.806805834715163)
     ([1,3,4,2],3.5)
     """
-    # check0()
-    # check1()
-    # check2()
+    check0()
+    check1()
+    check2()
     check3()
 
 
@@ -112,6 +117,8 @@ def check3():
 
 
 
-
 if __name__ == '__main__':
     check()
+    # test = GraphAlgo()
+    # test.load_from_json("data/A0.json")
+    # test.plot_graph()

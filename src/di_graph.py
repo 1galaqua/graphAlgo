@@ -14,6 +14,12 @@ class DiGraph(GraphInterface):
         self.nbrNodes = 0
         self.nbrEdges = 0
         self.mc = 0
+
+    def __str__(self):
+        return f'DiGraph |V|={self.nbrNodes}, |E|={self.nbrEdges}'
+
+    def __repr__(self):
+        return f'DiGraph(|V|={self.nbrNodes}, |E|={self.nbrEdges})'
            
     # return number of vertices in the graph
     def v_size(self) -> int:
@@ -113,36 +119,3 @@ class DiGraph(GraphInterface):
         else:
             return False
             
-    
-
-if __name__ == '__main__':
-    g = DiGraph()
-    pos1 = (1,2,0)
-    pos2 = (1,1,0)
-    pos3 = (2,1,0)
-    pos4 = (2,2,0)
-    
-    # node1 = Nodes(1, pos1)
-    # node2 = Nodes(2, pos2)
-    # node3 = Nodes(3, pos3)
-    
-    g.add_node(1,pos1)
-    g.add_node(2,pos2)
-    g.add_node(3,pos3)
-    g.add_node(4,pos4)
-    
-    g.add_edge(1, 2, 1)
-    g.add_edge(2, 1, 1)
-    g.add_edge(2, 3, 1)
-    g.add_edge(3, 1, 1)
-    g.add_edge(4, 2, 1)
-    g.add_edge(3, 4, 1)
-    g.add_edge(3, 2 ,2)
-    
-    print(g.nbrEdges,g.nbrNodes)
-    g.remove_node(2)
-    
-    print(g.nbrEdges,g.nbrNodes)
-    print(g.NodesMap[3].me_to_other)
-    print(g.NodesMap[4].other_to_me)
-    print(g.NodesMap[4].me_to_other)

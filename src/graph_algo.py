@@ -61,7 +61,7 @@ class GraphAlgo(GraphAlgoInterface):
             
             # convert pos from float tuple to string
             curr_pos = self.get_graph().get_all_v()[id]
-            # print(curr_pos)
+            
             phrase = str(curr_pos[0])
             phrase+=','
             phrase+=str(curr_pos[1])
@@ -143,7 +143,7 @@ class GraphAlgo(GraphAlgoInterface):
         
         for id,node in test.get_all_v().items():
             test.NodesMap[id].tag=0
-            test.NodesMap[id].weight=float('inf')
+            test.NodesMap[id].weight= float('inf')
             test.NodesMap[id].dist=0
               
         test.NodesMap[src].weight=0
@@ -204,7 +204,7 @@ class GraphAlgo(GraphAlgoInterface):
 
         while queue:
             s = queue.pop(0)
-            # print (s , end = " ")
+            
 
             for i in graph.NodesMap[s].me_to_other:
                 if graph.NodesMap[i].tag==0:
@@ -213,7 +213,7 @@ class GraphAlgo(GraphAlgoInterface):
 
 
     def isConnected(self):
-        # print(next(iter(self.get_graph().NodesMap)))
+        
         self.BFS(self.get_graph() , next(iter(self.get_graph().NodesMap)))
         for key,nodes in self.get_graph().NodesMap.items():
             if nodes.tag == 0:
@@ -234,8 +234,3 @@ class GraphAlgo(GraphAlgoInterface):
                 return False
         
         return True
-
-
-
-if __name__ == '__main__':
-    pass

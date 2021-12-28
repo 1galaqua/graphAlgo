@@ -12,7 +12,7 @@ import sys
 from node_class import Nodes
 
 
-
+pygame.init()
 # option to write text
 pygame.font.init()
 
@@ -150,6 +150,7 @@ def draw_window(graph:DiGraph):
 
 
 def main(graph:DiGraph):
+    pygame.init()
     run = True
     while run:
 
